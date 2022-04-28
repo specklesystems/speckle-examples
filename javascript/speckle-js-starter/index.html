@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speckle Web Starter</title>
+  <script src="https://unpkg.com/@speckle/viewer@2.5.2" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/w-jsonview-tree@1.0.24/dist/w-jsonview-tree.umd.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="viewerParent" class="hero is-fullheight">
+    <div id="viewer" class=""></div>
+    <div class="box" id="menu">
+      <div class="content">
+        <h3 class="title has-text-info">Speckle Web Starter</h3>
+        <p class="subtitle is-size-7">Loading data into the viewer and getting metadata from selection</p>
+        <div class="field has-addons">
+          <div class="control">
+            <input id="stream-input" class="input" type="text" placeholder="Your stream ID">
+          </div>
+          <div class="control">
+            <input id="token-input" class="input" type="text" placeholder="Your auth token">
+          </div>
+          <div class="control">
+            <button class="button is-info" id="reloadButton">Load</button>
+          </div>
+        </div>
+        <button id="take-screenshot" class="button is-fullwidth is-info is-small">Take screenshot</button>
+      </div>
+
+    </div>
+    <div class="box" id="selected-panel">
+      <div class="content" id="selection-area-parent">
+        <h3 class="title has-text-info">Selected objects
+        </h3>
+        <p class="subtitle is-size-7">Data from selected objects</p>
+        <p id="selection-area"></p>
+      </div>
+    </div>
+    <div class="bottom-left">
+      <a class="button is-info is-small" href="http://speckle.systems">
+        <span>Powered by Speckle</span>
+      </a>
+    </div>
+    <div class="bottom-right">
+      <a class="button is-small is-info is-rounded" href="http://speckle.guide">
+        <span class="icon">
+          <i class="fas fa-question"></i>
+        </span></a>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>

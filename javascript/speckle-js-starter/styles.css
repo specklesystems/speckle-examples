@@ -1,0 +1,43 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: whitesmoke !important;
+}
+
+#viewer {
+  width: 100vw;
+  height: 100vh;
+}
+
+#menu {
+  position: fixed;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  margin: 1em;
+}
+
+#selected-panel {
+  position: absolute;
+  top: 0em;
+  right: 0em;
+  width: 450px !important;
+  margin: 1em;
+  max-height: 50% !important;
+  overflow-y: auto;
+}
+
+.bottom-left {
+  position: fixed;
+  bottom: 0;
+  margin: 1em;
+}
+
+.bottom-right {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 1em;
+}
