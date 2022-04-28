@@ -8,8 +8,8 @@ from specklepy.transports.server import ServerTransport
 from specklepy.api import operations
 
 # The id of the stream to work with (we're assuming it already exists in your default account's server)
-streamId = "YOUR_STREAM_ID_HERE"
-branchName = "YOUR_BRANCH_NAME_HERE"
+streamId = "51d8c73c9d"
+branchName = "branch1"
 
 
 # Initialise the Speckle client pointing to your specific server.
@@ -49,9 +49,9 @@ newHash = operations.send(base=received_base, transports=[transport])
 commit_id = client.commit.create(
     stream_id=streamId,
     branch_name=branchName,
-    object_id=hash,
+    object_id=newHash,
     message="Automatic commit created by AEC Tech Demo by AECTechDemo.py script",
-    source_application="AEC Tech Python Script"
+    source_application="AEC Tech Python Script",
 )
 
 print("Successfully created commit with id: ", commit_id)

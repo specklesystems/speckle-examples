@@ -15,9 +15,9 @@ namespace CSharpStarter
         static void Main(string[] args)
         {
             // The id of the stream to work with (we're assuming it already exists in your default account's server)
-            var streamId = "c1800d795b";
+            var streamId = "51d8c73c9d";
             // The name of the branch we'll send data to.
-            var branchName = "processed";
+            var branchName = "branch1";
 
             // Get default account on this machine
             // If you don't have Speckle Manager installed download it from https://speckle-releases.netlify.app
@@ -78,7 +78,7 @@ namespace CSharpStarter
 
 
             var exit = false;
-            client.OnCommitCreated += OnCommitCreated;
+            // client.OnCommitCreated += OnCommitCreated;
 
             // Subscribe to commits created on the stream.
             client.SubscribeCommitCreated(streamId);
@@ -104,32 +104,32 @@ namespace CSharpStarter
             client.Dispose();
         }
 
-        public static void OnCommitCreated(object sender, Speckle.Core.Api.SubscriptionModels.CommitInfo e)
-        {
-            // Ignore commits from any branch other than 'main'
-            if (e.branchName != "main") return;
+        // public static void OnCommitCreated(object sender, Speckle.Core.Api.SubscriptionModels.CommitInfo e)
+        // {
+        //     // Ignore commits from any branch other than 'main'
+        //     if (e.branchName != "main") return;
 
-            Console.WriteLine("Commit was created in Main! Processing data...");
+        //     Console.WriteLine("Commit was created in Main! Processing data...");
 
-            // Create the server transport for the specified stream.
-            var transport = new ServerTransport(defaultAccount, streamId);
-            // Receive the object
-            var receivedBase = Operations.Receive(hash, transport).Result;
+        //     // Create the server transport for the specified stream.
+        //     var transport = new ServerTransport(defaultAccount, streamId);
+        //     // Receive the object
+        //     var receivedBase = Operations.Receive(hash, transport).Result;
 
-            var newHash = Operations.Send(receivedBase, new List<ITransport> { transport }).Result;
+        //     var newHash = Operations.Send(receivedBase, new List<ITransport> { transport }).Result;
 
-            // Create a commit in `processed` branch (it must previously exist)
-            var commitId = client.CommitCreate(new CommitCreateInput()
-            {
-                branchName = "processed",
-                message = "Automatic commit created by AEC Tech Demo C# console app.",
-                objectId = newHash,
-                streamId = streamId,
-                sourceApplication = "C#"
+        //     // Create a commit in `processed` branch (it must previously exist)
+        //     var commitId = client.CommitCreate(new CommitCreateInput()
+        //     {
+        //         branchName = "processed",
+        //         message = "Automatic commit created by AEC Tech Demo C# console app.",
+        //         objectId = newHash,
+        //         streamId = streamId,
+        //         sourceApplication = "C#"
 
-            }).Result;
-            Console.WriteLine($"Successfully created commit with id: {commitId}");
-            exit = true;
-        }
+        //     }).Result;
+        //     Console.WriteLine($"Successfully created commit with id: {commitId}");
+        //     exit = true;
+        // }
     }
 }
