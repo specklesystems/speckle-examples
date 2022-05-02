@@ -28,10 +28,6 @@ Comprehensive developer and user documentation can be found in our:
 
 #### 📚 [Speckle Docs website](https://speckle.guide/dev/)
 
-## Developing & Debugging
-
-This doesn't make sense here, but in general, we should try to provide a small "how to" guide on local development and debugging, as it lowers the barrier to contributions.
-
 ## Contributing
 
 Please make sure you read the [contribution guidelines](.github/CONTRIBUTING.md) for an overview of the best practices we try to follow.

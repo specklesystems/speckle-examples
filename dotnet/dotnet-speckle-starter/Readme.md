@@ -1,4 +1,4 @@
-# Speckle Repo Management Templates
+# Speckle .NET Starter
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/SpeckleSystems?style=social)](https://twitter.com/SpeckleSystems) [![Community forum users](https://img.shields.io/discourse/users?server=https%3A%2F%2Fdiscourse.speckle.works&style=flat-square&logo=discourse&logoColor=white)](https://discourse.speckle.works) [![website](https://img.shields.io/badge/https://-speckle.systems-royalblue?style=flat-square)](https://speckle.systems) [![docs](https://img.shields.io/badge/docs-speckle.guide-orange?style=flat-square&logo=read-the-docs&logoColor=white)](https://speckle.guide/dev/)
 
@@ -41,10 +41,6 @@ dotnet add package Speckle.Core --version 2.5.2
 Comprehensive developer and user documentation can be found in our:
 
 #### 📚 [Speckle Docs website](https://speckle.guide/dev/)
-
-## Developing & Debugging
-
-This doesn't make sense here, but in general, we should try to provide a small "how to" guide on local development and debugging, as it lowers the barrier to contributions.
 
 ## Contributing
 
