@@ -4,18 +4,19 @@
 
 ## Introduction
 
-This section should hold a quick intro on what this repo's about. For example:
+This repo contains example projects and scripts to get started using Speckle on any of our supported languages.
 
-This repo holds Speckle's:
+The repo is divided into folders by language, so that it's easier to navigate and find any example.
 
-- Default [Code of Conduct](.github/CODE_OF_CONDUCT.md),
-- Default [Contribution Guidelines](.github/CONTRIBUTING.md),
-- README template (you're reading it now),
-- Default [Issue Template](.github/ISSUE_TEMPLATE/ISSUE_TEMPLATE.md),
-- Default [Pull Request Template](.github/PULL_REQUEST_TEMPLATE/PR_TEMPLATE.md),
-- OSS License (Apache 2.0)
+You'll find folders for the following languages:
 
-Either copy paste the parts that are useful in existing repos, or use this as a base when creating a new repository.
+- `dotnet/`: Examples relating to Microsoft's .Net programming language
+  - `dotnet-speckle-starter`: A basic starter project using Speckle NuGet libraries to receive and send data, as well as handling local accounts in your machine and creating new commits.
+  - `dui-speckle-starter`: A basic starter project showcasing the use of our `Desktop UI` library, simplifying the connection between desktop applications and Speckle, and reducing the amount of code required for a new Desktop connector.
+- `python/`: Examples relating to the `python` programming language
+  - `speckle-py-starter`: A basic starter project our `specklepy` library to receive and send data, as well as handling local accounts in your machine and creating new commits.
+- `javascript/`: Examles relating to the `javascript` programming language
+  - `speckle-js-starter`: Basic example website showcasing communication with the Speckle GraphQL API and basic functionality of the 3D Viewer `npm` package (viewing speckle data, setting events such as selection or double-click...)
 
 ## Documentation
 
@@ -23,21 +24,9 @@ Comprehensive developer and user documentation can be found in our:
 
 #### 📚 [Speckle Docs website](https://speckle.guide/dev/)
 
-## This Readme Template
-
-Is rather straightforward. It includes several default sections and one section that requires special attention.
-
-Default sections:
-
-- Badges: has several default social badges. Feel free to add more.
-- Developing & Debugging - needs filling in!
-- Community - can be left as is.
-
-**License section**: If this is a pure OSS repo, like Core, remove everything after the first phrase. Otherwise, we need to plan ahead before releasing and make sure we're covered.
-
 ## Developing & Debugging
 
-This doesn't make sense here, but in general, we should try to provide a small "how to" guide on local development and debugging, as it lowers the barrier to contributions.
+Each project should contain it's own `readme.md` file, detailing any steps required to run the examples.
 
 ## Contributing
 
@@ -49,7 +38,7 @@ The Speckle Community hangs out on [the forum](https://discourse.speckle.works),
 
 ## Security
 
-For any security vulnerabilities or concerns, please contact us directly at security[at]speckle.systems. 
+For any security vulnerabilities or concerns, please contact us directly at security[at]speckle.systems.
 
 ## License
 
