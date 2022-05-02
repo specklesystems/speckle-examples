@@ -54,10 +54,10 @@ namespace CSharpStarter
             var commitId = client.CommitCreate(new CommitCreateInput()
             {
                 branchName = branchName,
-                message = "Automatic commit created by AEC Tech Demo C# console app.",
+                message = "Automatic commit created by C# Starter example console app.",
                 objectId = newHash,
                 streamId = streamId,
-                sourceApplication = "AEC Tech C# Script"
+                sourceApplication = "C# Starter Script"
 
             }).Result;
 
