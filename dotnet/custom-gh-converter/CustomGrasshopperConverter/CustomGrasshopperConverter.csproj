@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>CustomGrasshopperConverter</RootNamespace>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <AssemblyName>CustomObjects.Converter.Grasshopper7</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Speckle.Core" Version="2.5.4-alpha" IncludeAssets="compile;build" />
+    <PackageReference Include="Speckle.Objects" Version="2.5.4-alpha" IncludeAssets="compile;build" />
+    <PackageReference Include="Speckle.Objects.Converter.Grasshopper7" Version="2.5.4-alpha" IncludeAssets="compile;build" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CustomSpeckleObjects\CustomSpeckleObjects.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <IsDesktopBuild Condition="'$(IsDesktopBuild)' == ''">true</IsDesktopBuild>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(IsDesktopBuild)' == true">
+    <Exec Condition="$([MSBuild]::IsOsPlatform('Windows'))" Command="xcopy /Y /S &quot;$(TargetDir)$(AssemblyName).dll&quot; &quot;$(AppData)\Speckle\Kits\CustomObjects\&quot;" />
+    <Exec Condition="$([MSBuild]::IsOsPlatform('OSX'))" Command="mkdir $HOME'/.config/Speckle/Kits/CustomObjects/' &amp; cp '$(TargetDir)$(AssemblyName).dll' $HOME'/.config/Speckle/Kits/CustomObjects/'" />
+  </Target>
+</Project>
