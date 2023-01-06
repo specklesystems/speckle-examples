@@ -15,6 +15,7 @@ You'll find folders for the following languages:
   - `dui-speckle-starter`: A basic starter project showcasing the use of our `Desktop UI` library, simplifying the connection between desktop applications and Speckle, and reducing the amount of code required for a new Desktop connector.
 - `python/`: Examples relating to the `python` programming language
   - `speckle-py-starter`: A basic starter project our `specklepy` library to receive and send data, as well as handling local accounts in your machine and creating new commits.
+  - `speckle-jupyter-notebooks`: Basic primer examples for using the `specklepy` library within Jupyter notebooks for accessing, processing and writing Speckle data.
 - `javascript/`: Examles relating to the `javascript` programming language
   - `speckle-js-starter`: Basic example website showcasing communication with the Speckle GraphQL API and basic functionality of the 3D Viewer `npm` package (viewing speckle data, setting events such as selection or double-click...)
 
