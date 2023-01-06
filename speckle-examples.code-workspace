@@ -1,0 +1,25 @@
+{
+	"folders": [
+    {
+      "name": "jupyter",
+      "path": "./python/speckle-jupyter-notebooks"
+    },
+    {
+      "name": "python",
+      "path": "./python"
+    },
+    {
+      "name": "dotnet",
+      "path": "./dotnet"
+    },
+    {
+      "name": "javascript",
+      "path": "./javascript"
+    },
+    {
+      "name": "_",
+      "path": "."
+    }
+  ],
+  "settings": {}
+}

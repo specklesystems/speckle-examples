@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "speckle-jupyter-notebooks"
+version = "0.1.0"
+description = "Using Jupyter notebooks with Specklpy"
+authors = ["Speckle"]
+readme = "README.md"
+packages = [{include = "speckle_jupyter"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+specklepy = "^2.11.0"
+ghhops-server = "^1.5.4"
+flask = "^2.2.2"
+flask-caching = "^2.0.1"
+pandas = "^1.5.2"
+matplotlib = "^3.6.2"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
