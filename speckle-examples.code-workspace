@@ -19,7 +19,12 @@
     {
       "name": "_",
       "path": "."
+    },
+    {
+      "path": "../streamlit"
     }
   ],
-  "settings": {}
+  "settings": {
+    "vscord.enabled": true
+  }
 }
