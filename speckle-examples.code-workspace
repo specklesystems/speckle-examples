@@ -1,6 +1,10 @@
 {
 	"folders": [
     {
+      "name": "speckle data pack",
+      "path": "./python/speckle-data-pack"
+    },
+    {
       "name": "jupyter",
       "path": "./python/speckle-jupyter-notebooks"
     },
