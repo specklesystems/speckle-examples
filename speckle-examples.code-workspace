@@ -25,6 +25,12 @@
     }
   ],
   "settings": {
-    "vscord.enabled": true
+    "vscord.enabled": true,
+    "grammarly.selectors": [
+      {
+        "language": "markdown",
+        "scheme": "vscode-notebook-cell"
+      }
+    ]
   }
 }
