@@ -6,12 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Speckle.Core" Version="2.5.2" />
-    <PackageReference Include="Speckle.Objects" Version="2.5.2" />
+    <PackageReference Include="Speckle.Core" Version="2.15.3" />
+    <PackageReference Include="Speckle.Objects" Version="2.15.3" />
+    <PackageReference Include="Speckle.Objects.Converter.Revit2024" Version="2.15.3" />
   </ItemGroup>
 
 </Project>
