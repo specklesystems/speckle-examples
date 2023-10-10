@@ -4,6 +4,9 @@ using Speckle.Core.Api;
 using System.Threading;
 using System.Collections.Generic;
 using Speckle.Core.Transports;
+using Speckle.Core.Models.GraphTraversal;
+using System.Linq;
+using Speckle.Core.Models;
 
 namespace CSharpStarter
 {
@@ -46,6 +49,8 @@ namespace CSharpStarter
 
             // Process the object however you'd like
             Console.WriteLine("Received object:" + receivedBase);
+            // Check the sample Revit traversal and conversion method if you'd like to convert your received base to a native object
+            TraverseAndConvertToNativeRevit(receivedBase);
 
             // Sending the object will return it's unique identifier.
             var newHash = Operations.Send(receivedBase, new List<ITransport> { transport }).Result;
@@ -65,6 +70,49 @@ namespace CSharpStarter
 
             // Remember to dispose of the client once you've finished with it.
             client.Dispose();
+        }
+
+        static void TraverseAndConvertToNativeRevit(Speckle.Core.Models.Base receivedBase)
+        {
+          // load your speckle kit and converter
+          var kit = Speckle.Core.Kits.KitManager.GetDefaultKit();
+          var converter = kit.LoadConverter(Objects.Converter.Revit.ConverterRevit.RevitAppName);
+
+          // set your converter context document and properties
+          converter.SetContextDocument(doc); // doc is the Revit ui doc 
+          converter.ReceiveMode = Speckle.Core.Kits.ReceiveMode.Create; // this receive mode will always create new objects
+
+          // traverse the received base to get all convertible objects with the revit converter
+          // note: for all other applications, use the default traversal function DefaultTraversal.CreateTraverseFunc(converter)
+          var func = DefaultTraversal.CreateRevitTraversalFunc(converter);
+          var convertibleObjects = func.Traverse(receivedBase)
+            .Select(c => c.current)
+            .ToList();
+
+
+          // start your revit transaction here
+
+
+          // convert each speckle object to native
+          foreach (var convertibleObject in convertibleObjects)
+          {
+            var converted = converter.ConvertToNative(convertibleObject);
+
+            // sometimes the return type may be a speckle ApplicationObject instead of the native object
+            if (converted is ApplicationObject appObj)
+            {
+              if (appObj.Status == ApplicationObject.State.Failed)
+              {
+                // handle a failed conversion here
+                continue;
+              }
+              var revitObjs = appObj.Converted; // successfully converted revit elements
+              var revitObjIds = appObj.CreatedIds; // ElementIds of the revit elements that have been added to the revit doc
+            }
+          }
+
+
+          // commit your revit transaction
         }
 
         static void ReactToCommit(string[] args)
@@ -104,32 +152,6 @@ namespace CSharpStarter
             client.Dispose();
         }
 
-        // public static void OnCommitCreated(object sender, Speckle.Core.Api.SubscriptionModels.CommitInfo e)
-        // {
-        //     // Ignore commits from any branch other than 'main'
-        //     if (e.branchName != "main") return;
 
-        //     Console.WriteLine("Commit was created in Main! Processing data...");
-
-        //     // Create the server transport for the specified stream.
-        //     var transport = new ServerTransport(defaultAccount, streamId);
-        //     // Receive the object
-        //     var receivedBase = Operations.Receive(hash, transport).Result;
-
-        //     var newHash = Operations.Send(receivedBase, new List<ITransport> { transport }).Result;
-
-        //     // Create a commit in `processed` branch (it must previously exist)
-        //     var commitId = client.CommitCreate(new CommitCreateInput()
-        //     {
-        //         branchName = "processed",
-        //         message = "Automatic commit created by AEC Tech Demo C# console app.",
-        //         objectId = newHash,
-        //         streamId = streamId,
-        //         sourceApplication = "C#"
-
-        //     }).Result;
-        //     Console.WriteLine($"Successfully created commit with id: {commitId}");
-        //     exit = true;
-        // }
     }
 }
